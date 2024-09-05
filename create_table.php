@@ -20,7 +20,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 </head>
 <body>
 
-<h2>Créer une nouvelle table</h2>
+<h2>Création d'une Nouvelle Table</h2>
 <form action="create_table_action.php" method="POST">
     <label>Nom de la table :</label>
     <input type="text" name="table_name" required><br>
@@ -40,7 +40,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
         </div>
     </div>
 
-    <button type="button" onclick="addColumn()">Ajouter une colonne</button><br><br>
+    <button type="button" class="ajout" onclick="addColumn()">Ajouter une colonne</button><br><br>
 
     <button type="submit">Créer la table</button>
 </form>

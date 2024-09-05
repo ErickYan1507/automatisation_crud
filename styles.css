@@ -7,6 +7,7 @@ body {
 
 h2 {
     color: #333;
+    text-align: center;
 }
 
 form {
@@ -33,6 +34,15 @@ button {
     padding: 10px 15px;
     border-radius: 4px;
     cursor: pointer;
+}
+
+button.ajout {
+    background-color: #2898a7;
+    
+}
+button.ajout:hover {
+    background-color: #084f58;
+    
 }
 
 button:hover {
@@ -66,4 +76,11 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+select{
+    width: 15%;
+    padding: 0.5%;
+    border: rgb(202, 202, 202) 1px solid;
+    border-radius: 5%;
 }

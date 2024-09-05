@@ -1,5 +1,5 @@
 {
-    "name": "IDM",
+    "name": "crud-dsl-generator",
     "require": {
       "php": "^7.2 || ^8.0"
     }
