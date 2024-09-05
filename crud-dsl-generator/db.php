@@ -1,4 +1,5 @@
-<?php
+
+ <?php
 
 $dsn = "mysql:host=localhost;dbname=emilie";
 $username = "root";
@@ -11,4 +12,5 @@ try {
     die("Erreur de connexion à la base de données: " . $e->getMessage());
 }
 
-?>
+?> 
+
