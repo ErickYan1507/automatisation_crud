@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Interface for emix</title>
+</head>
+<body>
+    <h1>emix Management</h1>
+    <div>
+        <input type="text" id="nom" placeholder="Enter nom">
+        <button onclick="addItem()">Add Item</button>
+    </div>
+    <ul id="itemsList"></ul>
+
+    <script>
+        const apiUrl = '/emix_router.php';
+
+        async function fetchItems() {
+            const response = await fetch(apiUrl);
+            const items = await response.json();
+            const itemsList = document.getElementById('itemsList');
+            itemsList.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item.nom;
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = () => deleteItem(item.id);
+                li.appendChild(deleteButton);
+                itemsList.appendChild(li);
+            });
+        }
+
+        async function addItem() {
+            const item = { nom: document.getElementById('nom').value };
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ items: [item] })
+            });
+            const result = await response.json();
+            if (result.success) {
+                fetchItems();
+                document.getElementById('nom').value = '';
+            }
+        }
+
+        async function deleteItem(id) {
+            const response = await fetch(apiUrl + '?id=' + id, {
+                method: 'DELETE'
+            });
+            const result = await response.json();
+            if (result.success) {
+                fetchItems();
+            }
+        }
+
+        fetchItems();
+    </script>
+</body>
+</html>

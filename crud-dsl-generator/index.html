@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD DSL Generator</title>
+</head>
+<body>
+    <h1>CRUD DSL Generator</h1>
+    <form id="tableForm">
+        <label for="tableName">Table Name:</label>
+        <input type="text" id="tableName" name="tableName" required>
+        <div id="fieldsContainer">
+            <div class="field">
+                <label for="fieldName0">Field Name:</label>
+                <input type="text" id="fieldName0" name="fields[0][name]" required>
+                <label for="fieldType0">Field Type:</label>
+                <input type="text" id="fieldType0" name="fields[0][type]" required>
+            </div>
+        </div>
+        <button type="button" onclick="addField()">Add Field</button>
+        <button type="submit">Generate CRUD</button>
+    </form>
+
+    <script>
+        let fieldCount = 1;
+
+        function addField() {
+            const container = document.getElementById('fieldsContainer');
+            const div = document.createElement('div');
+            div.className = 'field';
+            div.innerHTML = `
+                <label for="fieldName${fieldCount}">Field Name:</label>
+                <input type="text" id="fieldName${fieldCount}" name="fields[${fieldCount}][name]" required>
+                <label for="fieldType${fieldCount}">Field Type:</label>
+                <input type="text" id="fieldType${fieldCount}" name="fields[${fieldCount}][type]" required>
+            `;
+            container.appendChild(div);
+            fieldCount++;
+        }
+
+        document.getElementById('tableForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                if (!data[key]) {
+                    data[key] = value;
+                } else {
+                    if (key.startsWith('fields')) {
+                        const match = key.match(/fields\[(\d+)\]\[(.+)\]/);
+                        if (match) {
+                            const index = parseInt(match[1], 10);
+                            const field = match[2];
+                            if (!data['fields']) {
+                                data['fields'] = [];
+                            }
+                            if (!data['fields'][index]) {
+                                data['fields'][index] = {};
+                            }
+                            data['fields'][index][field] = value;
+                        }
+                    }
+                }
+            });
+            data.tableName = formData.get('tableName');
+            fetch('generateCrud.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(response => response.json()).then(data => {
+                alert('data.message',data);
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
