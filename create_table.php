@@ -17,13 +17,28 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
     <link rel="stylesheet" href="styles.css">
     <!-- SweetAlert2 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style>
+        .column{
+            color:white;
+        }
+     input{
+           
+          
+            border:blue 1px solid;
+            outline:none;
+        }
+
+        label{
+            color:rgb(56, 53, 53);
+        }
+    </style>
 </head>
 <body>
 
 <h2>Création d'une Nouvelle Table</h2>
 <form action="create_table_action.php" method="POST">
     <label>Nom de la table :</label>
-    <input type="text" name="table_name" required><br>
+    <input type="text" name="table_name" class="table" required><br>
 
     <h3>Ajouter des colonnes</h3>
     <div id="columns">

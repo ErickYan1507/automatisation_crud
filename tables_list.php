@@ -14,6 +14,16 @@ $conn = null;
     <meta charset="UTF-8">
     <title>Liste des Tables</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        ul li a{
+            text-decoration:none;
+            color:rgb(56, 53, 53);
+        }
+        ul li a:hover{
+            color:red;
+            font-weight:bolder;
+        }
+    </style>
 </head>
 <body>
 

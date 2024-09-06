@@ -6,7 +6,7 @@ body {
 }
 
 h2 {
-    color: #333;
+    color: #b9b7b7;
     text-align: center;
 }
 
@@ -65,7 +65,7 @@ th, td {
 }
 
 th {
-    background-color: #f4f4f4;
+    background-color: #ffffff;
 }
 
 a {
@@ -84,3 +84,27 @@ select{
     border: rgb(202, 202, 202) 1px solid;
     border-radius: 5%;
 }
+body .tous{
+    background-color: hsl(from rgb(255, 255, 255) h s l);
+    color: rgb(80, 77, 77);
+    width: 45%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+}
+h1{
+    text-align: center;
+}
+body .tous label{
+    color: #ddd;
+}
+.table{
+    width: 100%;
+}
+
+
+
+
+ 
