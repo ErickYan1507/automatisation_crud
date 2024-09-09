@@ -38,7 +38,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 </head>
 <body>
 
-<h2>Création d'une Nouvelle Table</h2>
+<h1 class="">CREATION D'UNE TABLE CRUD</h1>
 <form action="create_table_action.php" method="POST">
     <label>Nom de la table :</label>
     <input type="text" name="table_name" class="table" required><br>
@@ -58,10 +58,14 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
         </div>
     </div>
 
-    <button type="button"  onclick="addColumn()" class="btn btn-secondary">Ajouter une colonne</button><br><br>
+    <button type="button"  onclick="addColumn()" class="btn btn-secondary">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+</svg> Colonne
+    </button><br><br>
 
-    <button type="submit" class="btn btn-primary">Créer la table</button>
-    <button class="btn btn-secondary "><i class="bi bi-8-circle"></i>Essai</button>
+    <button type="submit" class="btn btn-success">Créer la table</button>
+    
 </form>
 
 <!-- SweetAlert2 JS -->
