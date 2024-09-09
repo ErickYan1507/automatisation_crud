@@ -27,14 +27,14 @@ input[type="text"] {
     border-radius: 4px;
 }
 
-button {
+/* button {
     background-color: #28a745;
     color: white;
     border: none;
     padding: 10px 15px;
     border-radius: 4px;
     cursor: pointer;
-}
+} */
 
 button.ajout {
     background-color: #2898a7;

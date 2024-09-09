@@ -17,6 +17,9 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
     <link rel="stylesheet" href="styles.css">
     <!-- SweetAlert2 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+
     <style>
         .column{
             color:white;
@@ -55,13 +58,15 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
         </div>
     </div>
 
-    <button type="button" class="ajout" onclick="addColumn()">Ajouter une colonne</button><br><br>
+    <button type="button"  onclick="addColumn()" class="btn btn-secondary">Ajouter une colonne</button><br><br>
 
-    <button type="submit">Créer la table</button>
+    <button type="submit" class="btn btn-primary">Créer la table</button>
+    <button class="btn btn-secondary "><i class="bi bi-8-circle"></i>Essai</button>
 </form>
 
 <!-- SweetAlert2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
