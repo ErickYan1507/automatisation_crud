@@ -17,8 +17,10 @@ if ($table_name) {
         echo "<form action='crud_action.php?table=$table_name&action=insert' method='POST'>";
         foreach ($columns as $column) {
             if ($column != 'id') {
-                echo "<label>$column :</label>";
-                echo "<input type='text' name='$column' required><br>";
+              
+                echo "<label class='form-label'>$column :</label>";
+                echo "<input type='text' class='form-control' classname='form-control' name='$column' required><br>";
+               
             }
         }
         echo "<button type='submit'>Ajouter</button>";
