@@ -1,0 +1,21 @@
+php -S localhost:8000
+Voici un tableau des commandes de base pour PostgreSQL :
+
+| **Commande**                                         | **Description**                                           |
+|------------------------------------------------------|----------------------------------------------------------|
+| `psql -U nom_utilisateur -d nom_base_de_données`    | Connexion à la base de données                           |
+| `CREATE DATABASE nom_base_de_données;`               | Créer une nouvelle base de données                       |
+| `\l`                                                | Lister les bases de données                              |
+| `DROP DATABASE nom_base_de_données;`                | Supprimer une base de données                            |
+| `CREATE TABLE nom_table (colonne1 type1, colonne2 type2, ...);` | Créer une nouvelle table                                 |
+| `\dt`                                               | Lister les tables dans la base de données               |
+| `DROP TABLE nom_table;`                             | Supprimer une table                                      |
+| `\d nom_table`                                      | Afficher la structure d'une table                        |
+| `INSERT INTO nom_table (colonne1, colonne2) VALUES (valeur1, valeur2);` | Insérer des données dans une table                       |
+| `SELECT * FROM nom_table;`                          | Sélectionner des données                                 |
+| `UPDATE nom_table SET colonne1 = nouvelle_valeur WHERE condition;` | Mettre à jour des données                                 |
+| `DELETE FROM nom_table WHERE condition;`            | Supprimer des données                                    |
+| `\q`                                                | Quitter psql                                            |
+| `\i chemin/vers/fichier.sql`                        | Exécuter un fichier SQL                                  |
+
+Vous pouvez copier ce tableau en une seule fois ! Si vous avez besoin d'autres informations, n'hésitez pas à demander.
