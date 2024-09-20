@@ -20,9 +20,29 @@ try {
         
         $stmt = $conn->prepare($query);
         if ($stmt->execute($values)) {
-            echo "Nouvel enregistrement ajouté avec succès.";
+            // Utilisation de SweetAlert pour afficher un message de succès
+            echo "<script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Succès',
+                        text: 'Nouvel enregistrement ajouté avec succès!',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'crud.php?table=$table_name'; // Rediriger après confirmation
+                        }
+                    });
+                  </script>";
         } else {
-            echo "Erreur lors de l'ajout de l'enregistrement.";
+            // Utilisation de SweetAlert pour afficher un message d'erreur
+            echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erreur',
+                        text: 'Erreur lors de l\'ajout de l\'enregistrement!',
+                        confirmButtonText: 'OK'
+                    });
+                  </script>";
         }
     } elseif ($action == 'delete') {
         $id = $_GET['id'];
@@ -30,13 +50,42 @@ try {
         
         $stmt = $conn->prepare($query);
         if ($stmt->execute([':id' => $id])) {
-            echo "Enregistrement supprimé avec succès.";
+            // Utilisation de SweetAlert pour afficher un message de succès lors de la suppression
+            echo "<script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Succès',
+                        text: 'Enregistrement supprimé avec succès!',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'crud.php?table=$table_name'; // Rediriger après confirmation
+                        }
+                    });
+                  </script>";
         } else {
-            echo "Erreur lors de la suppression de l'enregistrement.";
+            // Utilisation de SweetAlert pour afficher un message d'erreur
+            echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erreur',
+                        text: 'Erreur lors de la suppression de l\'enregistrement!',
+                        confirmButtonText: 'OK'
+                    });
+                  </script>";
         }
     }
 } catch (PDOException $e) {
-    echo "Erreur: " . $e->getMessage();
+    echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Erreur',
+                text: 'Erreur: " . $e->getMessage() . "',
+                confirmButtonText: 'OK'
+            });
+          </script>";
 }
+?>
 
-// Il n'est pas nécessaire de fermer explicitement la connexion avec PDO, car elle se fermera automatiquement à la fin du script.
+<!-- Inclusion de SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
